@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vehicle Detail – RideEasy</title>
+  <meta name="description" content="View full specs, gallery, and book your preferred bike or scooter on RideEasy." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/booking.css" />
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="logo-icon">🛵</div>Ride<span>Easy</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vehicles.html" class="active">Vehicles</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta"><a href="vehicles.html" class="btn btn-primary btn-sm">🏍️ Rent Now</a></div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">🏠 Home</a>
+  <a href="vehicles.html">🏍️ Vehicles</a>
+  <a href="about.html">ℹ️ About</a>
+  <a href="contact.html">📞 Contact</a>
+</nav>
+
+<!-- ═══ MAIN ═══ -->
+<main style="padding-top: var(--navbar-h);">
+  <div class="container" style="padding-top:40px; padding-bottom:80px;">
+
+    <!-- Breadcrumb -->
+    <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--text-muted); margin-bottom:28px;">
+      <a href="index.html" style="color:var(--text-muted);">Home</a>
+      <span>›</span>
+      <a href="vehicles.html" style="color:var(--text-muted);">Vehicles</a>
+      <span>›</span>
+      <span id="vehicle-name" style="color:var(--text);">Loading...</span>
+    </div>
+
+    <div class="detail-layout">
+
+      <!-- ── LEFT: Gallery + Info ── -->
+      <div>
+        <!-- Gallery -->
+        <div class="gallery-main">
+          <img id="gallery-main-img" src="assets/images/activa.png" alt="Vehicle" />
+        </div>
+        <div class="gallery-thumbs" id="gallery-thumbs"></div>
+
+        <!-- Vehicle Info -->
+        <div class="vehicle-info">
+          <div class="vehicle-info-header">
+            <div>
+              <div style="display:flex; align-items:center; gap:10px; margin-bottom:8px;">
+                <span id="vehicle-type" class="badge badge-primary">🛵 Scooter</span>
+                <span id="vehicle-availability" class="badge badge-success">✅ Available</span>
+              </div>
+              <h1 class="vehicle-info-title" id="vehicle-name-h1">Honda Activa 6G</h1>
+            </div>
+            <div class="vehicle-info-price">
+              <div class="big-price" id="vehicle-price">₹40</div>
+              <div class="price-note">per hour</div>
+            </div>
+          </div>
+
+          <div class="vehicle-rating-bar">
+            <span class="rating-score" id="vehicle-rating">4.7</span>
+            <span class="stars vehicle-stars">★★★★★</span>
+            <span class="rating-reviews" id="vehicle-reviews">312 reviews</span>
+          </div>
+
+          <!-- Specs Table -->
+          <div class="specs-table">
+            <div class="spec-row">
+              <div class="spec-row-label">⛽ Fuel Type</div>
+              <div class="spec-row-value" id="spec-fuel">Petrol</div>
+            </div>
+            <div class="spec-row">
+              <div class="spec-row-label">🔧 Engine</div>
+              <div class="spec-row-value" id="spec-engine">109.51cc</div>
+            </div>
+            <div class="spec-row">
+              <div class="spec-row-label">💨 Mileage</div>
+              <div class="spec-row-value" id="spec-mileage">60 kmpl</div>
+            </div>
+            <div class="spec-row">
+              <div class="spec-row-label">🏷️ Brand</div>
+              <div class="spec-row-value" id="spec-brand">Honda</div>
+            </div>
+            <div class="spec-row">
+              <div class="spec-row-label">📍 City</div>
+              <div class="spec-row-value" id="spec-city">Haldwani</div>
+            </div>
+            <div class="spec-row">
+              <div class="spec-row-label">🚘 Category</div>
+              <div class="spec-row-value" id="spec-type">Scooter</div>
+            </div>
+          </div>
+
+          <!-- Features -->
+          <h4 style="margin-bottom:12px;">✨ Key Features</h4>
+          <div class="features-list" id="vehicle-features"></div>
+
+          <!-- Description -->
+          <h4 style="margin-bottom:12px;">📖 About This Vehicle</h4>
+          <p class="vehicle-desc" id="vehicle-desc">Loading description...</p>
+
+          <!-- Image Upload Section -->
+          <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); padding:24px; margin-top:16px;">
+            <h4 style="margin-bottom:8px;">📸 Vehicle Picture Gallery</h4>
+            <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:16px;">Upload additional photos of the vehicle condition before pickup</p>
+            <div style="display:grid; grid-template-columns: repeat(4, 1fr); gap:10px; margin-bottom:16px;" id="pic-preview-grid">
+              <div class="pic-slot" onclick="triggerUpload(this)" title="Click to add photo">
+                <input type="file" accept="image/*" style="display:none;" onchange="previewPic(this)" />
+                <div class="pic-slot-inner">➕<br><span>Add Photo</span></div>
+              </div>
+            </div>
+            <button class="btn btn-ghost btn-sm" onclick="triggerUpload(document.querySelector('.pic-slot'))">📎 Upload Vehicle Photo</button>
+          </div>
+
+          <!-- Reviews Section -->
+          <div style="margin-top:32px;">
+            <h4 style="margin-bottom:20px;">💬 Customer Reviews</h4>
+            <div style="display:flex; flex-direction:column; gap:16px;">
+              <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:20px;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                  <div style="display:flex; align-items:center; gap:10px;">
+                    <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--accent));display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;color:#fff;">AR</div>
+                    <div><div style="font-weight:600;font-size:0.9rem;">Arjun Rawat</div><div style="font-size:0.75rem;color:var(--text-muted);">Delhi • 2 weeks ago</div></div>
+                  </div>
+                  <span style="color:#FFB347;font-size:0.85rem;">★★★★★</span>
+                </div>
+                <p style="font-size:0.88rem;">Excellent condition. Well maintained bike, smooth pickup. Will rent again!</p>
+              </div>
+              <div style="background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); padding:20px;">
+                <div style="display:flex; justify-content:space-between; margin-bottom:8px;">
+                  <div style="display:flex; align-items:center; gap:10px;">
+                    <div style="width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,#3b82f6,#8b5cf6);display:flex;align-items:center;justify-content:center;font-weight:700;font-size:0.85rem;color:#fff;">PS</div>
+                    <div><div style="font-weight:600;font-size:0.9rem;">Gaurav Thapa</div><div style="font-size:0.75rem;color:var(--text-muted);">Mumbai • 1 month ago</div></div>
+                  </div>
+                  <span style="color:#FFB347;font-size:0.85rem;">★★★★☆</span>
+                </div>
+                <p style="font-size:0.88rem;">Great vehicle for city commute. Very fuel efficient and comfortable seat.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RIGHT: Booking Sidebar ── -->
+      <div class="booking-sidebar">
+        <h3>📅 Book This Vehicle</h3>
+        <div class="booking-form">
+          <div class="date-inputs">
+            <div class="form-group">
+              <label class="form-label">Pickup Date</label>
+              <input type="date" class="form-control" id="pickup-date" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Return Date</label>
+              <input type="date" class="form-control" id="return-date" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="form-label">⏰ Pickup Time</label>
+            <input type="time" class="form-control" id="pickup-time" value="09:00" />
+          </div>
+
+          <div class="duration-badge">
+            <span class="label">⏱️ Duration</span>
+            <span class="value" id="duration-display">24 hour(s)</span>
+          </div>
+
+          <div class="price-breakdown">
+            <div class="price-row"><span>Base Price</span><span id="base-price">₹960</span></div>
+            <div class="price-row"><span>Service Fee (10%)</span><span id="service-fee">₹96</span></div>
+            <div class="price-row"><span>Insurance</span><span id="insurance-fee">₹50</span></div>
+            <div class="price-total-row"><span>Total</span><span class="total-amount" id="total-price">₹1,106</span></div>
+          </div>
+
+          <button class="book-now-btn" id="book-now-btn">
+            🏍️ Book Now – Pay at Pickup
+          </button>
+          <div class="booking-guarantee">🛡️ Free cancellation up to 2 hours before pickup</div>
+        </div>
+
+        <!-- Quick Info -->
+        <div style="margin-top:20px; padding-top:20px; border-top:1px solid var(--border); display:flex; flex-direction:column; gap:10px;">
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--text-muted);">✅ No security deposit required</div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--text-muted);">⛽ Fuel included for first 50 km</div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--text-muted);">📞 24/7 roadside assistance</div>
+          <div style="display:flex; align-items:center; gap:8px; font-size:0.85rem; color:var(--text-muted);">🛡️ Full insurance coverage</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><div class="logo-icon">🛵</div>Ride<span>Easy</span></a>
+        <p>India's most trusted bike and scooter rental platform.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📸</a><a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">👍</a><a href="#" class="social-link">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a href="index.html">Home</a></li><li><a href="vehicles.html">Vehicles</a></li>
+        <li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Support</h4><ul>
+        <li><a href="contact.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Cities</h4><ul>
+        <li><a href="vehicles.html">Haldwani</a></li><li><a href="vehicles.html">Bhimtal</a></li>
+        <li><a href="vehicles.html">Bhowali</a></li><li><a href="vehicles.html">Nainital</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="container"><div class="footer-bottom">
+    <span>© 2026 RideEasy. All rights reserved.</span>
+    <span>Made with ❤️ in Uttarakhad</span>
+  </div></div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/vehicle-detail.js"></script>
+<script>
+  // Pic slot styles
+  const style = document.createElement('style');
+  style.textContent = `
+    .pic-slot { cursor:pointer; border:2px dashed var(--border); border-radius:var(--radius-md);
+      aspect-ratio:1; display:flex; align-items:center; justify-content:center;
+      transition:var(--transition-fast); overflow:hidden; }
+    .pic-slot:hover { border-color:var(--primary); }
+    .pic-slot-inner { text-align:center; font-size:0.72rem; color:var(--text-faint); }
+    .pic-slot img { width:100%; height:100%; object-fit:cover; }
+  `;
+  document.head.appendChild(style);
+
+  function triggerUpload(slotEl) {
+    const input = slotEl?.querySelector('input[type="file"]');
+    if (input) input.click();
+  }
+
+  function previewPic(input) {
+    const file = input.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = (e) => {
+      const slot = input.closest('.pic-slot');
+      slot.innerHTML = `<img src="${e.target.result}" alt="Vehicle photo" />`;
+
+      // Add a new empty slot
+      const grid = document.getElementById('pic-preview-grid');
+      if (grid.querySelectorAll('.pic-slot').length < 8) {
+        const newSlot = document.createElement('div');
+        newSlot.className = 'pic-slot';
+        newSlot.setAttribute('onclick', 'triggerUpload(this)');
+        newSlot.title = 'Click to add photo';
+        newSlot.innerHTML = `<input type="file" accept="image/*" style="display:none;" onchange="previewPic(this)" /><div class="pic-slot-inner">➕<br><span>Add Photo</span></div>`;
+        grid.appendChild(newSlot);
+      }
+      showToast('Photo added successfully! 📸', 'success');
+    };
+    reader.readAsDataURL(file);
+  }
+  window.triggerUpload = triggerUpload;
+  window.previewPic = previewPic;
+
+  // Sync title
+  document.addEventListener('DOMContentLoaded', () => {
+    const name = document.getElementById('vehicle-name-h1');
+    const breadcrumb = document.getElementById('vehicle-name');
+    if (name && breadcrumb) {
+      const obs = new MutationObserver(() => {
+        breadcrumb.textContent = name.textContent;
+      });
+      obs.observe(name, { childList: true, subtree: true, characterData: true });
+    }
+  });
+</script>
+</body>
+</html>

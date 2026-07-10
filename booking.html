@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Complete Booking – RideEasy</title>
+  <meta name="description" content="Complete your vehicle booking on RideEasy. Enter your details and confirm your ride." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/booking.css" />
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="logo-icon">🛵</div>Ride<span>Easy</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vehicles.html">Vehicles</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta"><a href="vehicles.html" class="btn btn-primary btn-sm">🏍️ Rent Now</a></div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">🏠 Home</a>
+  <a href="vehicles.html">🏍️ Vehicles</a>
+  <a href="about.html">ℹ️ About</a>
+  <a href="contact.html">📞 Contact</a>
+</nav>
+
+<main class="booking-container">
+
+  <!-- Progress Steps -->
+  <div class="booking-steps">
+    <div class="booking-step done">
+      <div class="booking-step-num">✓</div>
+      <span>Choose Vehicle</span>
+    </div>
+    <div class="step-connector done"></div>
+    <div class="booking-step active">
+      <div class="booking-step-num">2</div>
+      <span>Your Details</span>
+    </div>
+    <div class="step-connector"></div>
+    <div class="booking-step">
+      <div class="booking-step-num">3</div>
+      <span>Confirmation</span>
+    </div>
+  </div>
+
+  <!-- ── FORM SECTION ── -->
+  <div id="form-section">
+    <div class="booking-layout">
+
+      <!-- Left: Form -->
+      <div>
+        <div class="booking-form-section">
+
+          <!-- Personal Info -->
+          <h2>👤 Personal Information</h2>
+          <div class="booking-form-grid">
+            <div class="form-row-2">
+              <div class="form-group">
+                <label class="form-label">Full Name *</label>
+                <input type="text" class="form-control" id="full-name" placeholder="Rajat Kumar" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Mobile Number *</label>
+                <input type="tel" class="form-control" id="phone" placeholder="98XXXXXXXX" maxlength="10" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input type="email" class="form-control" id="email" placeholder="you@example.com" />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Emergency Contact Number</label>
+              <input type="tel" class="form-control" id="emergency-contact" placeholder="98XXXXXXXX" maxlength="10" />
+            </div>
+          </div>
+
+          <!-- ID Proof -->
+          <h2 style="margin-top:36px; margin-bottom:20px;">🪪 ID Proof Upload</h2>
+          <div class="booking-form-grid">
+            <div class="form-group">
+              <label class="form-label">ID Type *</label>
+              <select class="form-control" id="id-type">
+                <option value="">Select ID type</option>
+                <option>Aadhaar Card</option>
+                <option>Driving License</option>
+                <option>Passport</option>
+                <option>Voter ID</option>
+              </select>
+            </div>
+            <div class="id-upload" id="id-drop-zone" onclick="document.getElementById('id-file').click()">
+              <input type="file" id="id-file" accept="image/*,.pdf" style="display:none;" onchange="handleIdUpload(this)" />
+              <div class="id-upload-icon">📎</div>
+              <p style="color:var(--text-muted); margin-bottom:4px;">Click to upload your ID proof</p>
+              <p class="format-hint">Accepted: JPG, PNG, PDF (max 5MB)</p>
+            </div>
+          </div>
+
+          <!-- Payment -->
+          <h2 style="margin-top:36px; margin-bottom:20px;">💳 Payment Method</h2>
+          <div class="payment-methods">
+            <div class="payment-method selected" onclick="selectPayment(this)">
+              <input type="radio" name="payment" value="cod" checked />
+              <span class="payment-method-icon">🏦</span>
+              <div><div class="payment-method-label">Pay at Pickup (Cash)</div><div class="payment-method-sub">Pay when you collect your vehicle</div></div>
+            </div>
+            <div class="payment-method" onclick="selectPayment(this)">
+              <input type="radio" name="payment" value="upi" />
+              <span class="payment-method-icon">📱</span>
+              <div><div class="payment-method-label">UPI Payment</div><div class="payment-method-sub">Google Pay, PhonePe, Paytm</div></div>
+            </div>
+            <div class="payment-method" onclick="selectPayment(this)">
+              <input type="radio" name="payment" value="card" />
+              <span class="payment-method-icon">💳</span>
+              <div><div class="payment-method-label">Credit / Debit Card</div><div class="payment-method-sub">Visa, Mastercard, RuPay</div></div>
+            </div>
+            <div class="payment-method" onclick="selectPayment(this)">
+              <input type="radio" name="payment" value="netbanking" />
+              <span class="payment-method-icon">🏧</span>
+              <div><div class="payment-method-label">Net Banking</div><div class="payment-method-sub">All major Indian banks</div></div>
+            </div>
+          </div>
+
+          <!-- Terms -->
+          <div style="margin-top:28px; padding:16px; background:var(--surface-2); border:1px solid var(--border); border-radius:var(--radius-md);">
+            <label style="display:flex; align-items:flex-start; gap:10px; cursor:pointer; font-size:0.88rem; color:var(--text-muted);">
+              <input type="checkbox" id="terms-check" style="margin-top:3px; accent-color:var(--primary);" />
+              I agree to RideEasy's <a href="#" style="color:var(--primary);">Terms of Service</a> and <a href="#" style="color:var(--primary);">Privacy Policy</a>. I confirm that I hold a valid driving license.
+            </label>
+          </div>
+
+          <button class="btn btn-ghost btn-sm" id="back-btn" style="margin-top:16px;">← Back to Vehicle</button>
+        </div>
+      </div>
+
+      <!-- Right: Summary Card -->
+      <div>
+        <div class="booking-summary-card">
+          <h4 style="margin-bottom:16px;">🛒 Booking Summary</h4>
+          <div class="summary-vehicle">
+            <div class="summary-vehicle-img">
+              <img id="summary-img" src="assets/images/royal_enfield.png" alt="Vehicle" />
+            </div>
+            <div>
+              <div class="summary-vehicle-name" id="summary-name">Royal Enfield Classic 350</div>
+              <div class="summary-vehicle-type" id="summary-type">🏍️ Bike</div>
+            </div>
+          </div>
+
+          <div class="summary-details">
+            <div class="summary-detail-row">
+              <span class="summary-detail-label">📍 City</span>
+              <span class="summary-detail-val" id="summary-city">Delhi</span>
+            </div>
+            <div class="summary-detail-row">
+              <span class="summary-detail-label">📅 Pickup</span>
+              <span class="summary-detail-val" id="summary-pickup">—</span>
+            </div>
+            <div class="summary-detail-row">
+              <span class="summary-detail-label">📅 Return</span>
+              <span class="summary-detail-val" id="summary-return">—</span>
+            </div>
+            <div class="summary-detail-row">
+              <span class="summary-detail-label">⏱️ Duration</span>
+              <span class="summary-detail-val" id="summary-duration">24 hours</span>
+            </div>
+            <div style="height:1px; background:var(--border); margin:4px 0;"></div>
+            <div class="summary-detail-row">
+              <span class="summary-detail-label">Base Price</span>
+              <span class="summary-detail-val" id="summary-base">₹2,040</span>
+            </div>
+            <div class="summary-detail-row">
+              <span class="summary-detail-label">Service Fee</span>
+              <span class="summary-detail-val" id="summary-service">₹204</span>
+            </div>
+            <div class="summary-detail-row">
+              <span class="summary-detail-label">Insurance</span>
+              <span class="summary-detail-val" id="summary-insurance">₹50</span>
+            </div>
+          </div>
+
+          <div class="summary-total-box">
+            <span class="summary-total-label">💰 Total Amount</span>
+            <span class="summary-total-amount" id="summary-total">₹2,294</span>
+          </div>
+
+          <button class="confirm-btn" id="confirm-btn">
+            ✅ Confirm Booking
+          </button>
+
+          <div style="margin-top:16px; display:flex; flex-direction:column; gap:8px;">
+            <div style="display:flex; align-items:center; gap:6px; font-size:0.78rem; color:var(--text-faint);">🔒 Secured by 256-bit SSL encryption</div>
+            <div style="display:flex; align-items:center; gap:6px; font-size:0.78rem; color:var(--text-faint);">🛡️ Free cancellation up to 2 hours before pickup</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── SUCCESS SCREEN ── -->
+  <div class="success-screen" id="success-screen">
+    <div class="success-icon">🎉</div>
+    <h2 style="font-size:2rem; margin-bottom:12px;">Booking Confirmed!</h2>
+    <p style="color:var(--text-muted); max-width:480px; margin:0 auto 24px;">Your ride has been booked successfully. You'll receive a confirmation SMS and email shortly.</p>
+
+    <div class="booking-id">
+      🎫 Booking ID: <span id="booking-id">RE12345678</span>
+    </div>
+
+    <div style="display:flex; gap:12px; justify-content:center; flex-wrap:wrap; margin-top:32px;">
+      <a href="vehicles.html" class="btn btn-primary btn-lg">🏍️ Book Another Ride</a>
+      <a href="index.html" class="btn btn-outline btn-lg">🏠 Go Home</a>
+    </div>
+
+    <div style="margin-top:40px; padding:24px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-lg); max-width:460px; margin-left:auto; margin-right:auto; text-align:left;">
+      <h4 style="margin-bottom:16px;">📋 What's Next?</h4>
+      <div style="display:flex; flex-direction:column; gap:12px;">
+        <div style="display:flex; align-items:center; gap:10px; font-size:0.88rem; color:var(--text-muted);">📱 Check your SMS for pickup instructions</div>
+        <div style="display:flex; align-items:center; gap:10px; font-size:0.88rem; color:var(--text-muted);">📸 Bring your ID proof to pickup</div>
+        <div style="display:flex; align-items:center; gap:10px; font-size:0.88rem; color:var(--text-muted);">⛽ Fuel topped up, insurance active</div>
+        <div style="display:flex; align-items:center; gap:10px; font-size:0.88rem; color:var(--text-muted);">📞 Call us: 1800-RIDEEASY for any help</div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><div class="logo-icon">🛵</div>Ride<span>Easy</span></a>
+        <p>India's most trusted bike and scooter rental platform.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📸</a><a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">👍</a><a href="#" class="social-link">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a href="index.html">Home</a></li><li><a href="vehicles.html">Vehicles</a></li>
+        <li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Support</h4><ul>
+        <li><a href="contact.html">FAQ</a></li><li><a href="contact.html">Contact Us</a></li>
+        <li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul>
+        <li><a href="tel:18001234567">📞 1800-RIDEEASY</a></li>
+        <li><a href="mailto:support@rideeasy.in">📧 support@rideeasy.in</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="container"><div class="footer-bottom">
+    <span>© 2026 RideEasy. All rights reserved.</span>
+    <span>Made with ❤️ in Uttarakhand</span>
+  </div></div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/booking.js"></script>
+<script>
+  function selectPayment(el) {
+    document.querySelectorAll('.payment-method').forEach(m => m.classList.remove('selected'));
+    el.classList.add('selected');
+    el.querySelector('input[type="radio"]').checked = true;
+  }
+
+  function handleIdUpload(input) {
+    const file = input.files[0];
+    if (!file) return;
+    const zone = document.getElementById('id-drop-zone');
+    zone.innerHTML = `<div style="font-size:2rem;">✅</div><p style="color:var(--success); margin-bottom:4px;">${file.name}</p><p class="format-hint" style="color:var(--text-faint);">Click to change</p>`;
+    zone.onclick = () => document.getElementById('id-file').click();
+    showToast('ID proof uploaded successfully!', 'success');
+  }
+  window.handleIdUpload = handleIdUpload;
+
+  document.getElementById('confirm-btn')?.addEventListener('click', function() {
+    const termsChecked = document.getElementById('terms-check')?.checked;
+    if (!termsChecked) { showToast('Please accept the Terms of Service', 'error'); return; }
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>RideEasy – Rent Bikes & Scooters Near You</title>
+  <meta name="description"
+    content="RideEasy lets you rent bikes and scooters across India. Browse 100+ vehicles, instant booking, affordable prices. Available in Delhi, Mumbai, Bangalore & more." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/home.css" />
+</head>
+
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">🛵</div>
+        Ride<span>Easy</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="vehicles.html">Vehicles</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+      <div class="nav-cta">
+        <a href="vehicles.html" class="btn btn-primary btn-sm">🏍️ Rent Now</a>
+      </div>
+      <div class="hamburger" id="hamburger">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </nav>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">🏠 Home</a>
+    <a href="vehicles.html">🏍️ Vehicles</a>
+    <a href="about.html">ℹ️ About</a>
+    <a href="contact.html">📞 Contact</a>
+    <a href="vehicles.html" class="btn btn-primary" style="text-align:center;margin-top:8px;">Rent Now</a>
+  </nav>
+
+  <!-- ═══ HERO ═══ -->
+  <section class="hero">
+    <div class="hero-bg">
+      <img src="assets/images/hero_bg.png" alt="City streets at night" />
+    </div>
+    <div class="particles" id="particles"></div>
+    <div class="hero-content">
+      <div class="hero-text">
+        <span class="eyebrow">🚀 India's #1 Bike Rental Platform</span>
+        <h1>
+          <span class="line">Explore the City</span>
+          <span class="line highlight">Your Way,</span>
+          <span class="line">Any Day.</span>
+        </h1>
+        <p class="hero-desc">Rent premium bikes and scooters by the hour or day. 100+ vehicles, instant booking, and
+          doorstep delivery across Haldwani, Bhimtal, Nainital & more.</p>
+        <div class="hero-cta">
+          <a href="vehicles.html" class="btn btn-primary btn-lg">Browse Vehicles →</a>
+          <a href="about.html" class="btn btn-outline btn-lg">How It Works</a>
+        </div>
+        <div class="hero-stats">
+          <div class="hero-stat-item">
+            <div class="hero-stat-value" data-count="500">500+</div>
+            <div class="hero-stat-label">Vehicles</div>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-value" data-count="12">12</div>
+            <div class="hero-stat-label">Cities</div>
+          </div>
+          <div class="hero-stat-divider"></div>
+          <div class="hero-stat-item">
+            <div class="hero-stat-value" data-count="50000">50K+</div>
+            <div class="hero-stat-label">Happy Riders</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Quick Search Card -->
+      <div class="hero-visual">
+        <div class="search-card">
+          <h3>🔍 Find Your Ride</h3>
+          <div class="vehicle-tabs">
+            <button class="vehicle-tab active" data-tab="scooter">🛵 Scooter</button>
+            <button class="vehicle-tab" data-tab="bike">🏍️ Bike</button>
+          </div>
+          <div class="search-form">
+            <div class="form-group">
+              <label class="form-label">📍 Pickup City</label>
+              <select class="form-control" id="hero-city">
+                <option>Bhowali</option>
+                <option>Bhimtal</option>
+                <option>Nainital</option>
+                <option>Haldwani</option>
+              </select>
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label">📅 Pickup Date</label>
+                <input type="date" class="form-control" id="hero-pickup" />
+              </div>
+              <div class="form-group">
+                <label class="form-label">📅 Return Date</label>
+                <input type="date" class="form-control" id="hero-return" />
+              </div>
+            </div>
+            <button class="btn btn-primary" style="width:100%;justify-content:center;" onclick="searchVehicles()">
+              Search Available Vehicles →
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ BRAND LOGOS ═══ -->
+  <section class="section-sm"
+    style="border-top:1px solid var(--border); border-bottom:1px solid var(--border); background:var(--bg-2);">
+    <div class="container">
+      <p
+        style="text-align:center; font-size:0.8rem; text-transform:uppercase; letter-spacing:0.12em; color:var(--text-faint); margin-bottom:28px;">
+        Trusted fleet of top brands</p>
+      <div style="display:flex; align-items:center; justify-content:center; gap:48px; flex-wrap:wrap;">
+        <span
+          style="font-size:1rem; font-weight:700; color:var(--text-muted); opacity:0.6; font-family:var(--font-head);">HONDA</span>
+        <span
+          style="font-size:1rem; font-weight:700; color:var(--text-muted); opacity:0.6; font-family:var(--font-head);">ROYAL
+          ENFIELD</span>
+        <span
+          style="font-size:1rem; font-weight:700; color:var(--text-muted); opacity:0.6; font-family:var(--font-head);">KTM</span>
+        <span
+          style="font-size:1rem; font-weight:700; color:var(--text-muted); opacity:0.6; font-family:var(--font-head);">TVS</span>
+        <span
+          style="font-size:1rem; font-weight:700; color:var(--text-muted); opacity:0.6; font-family:var(--font-head);">YAMAHA</span>
+        <span
+          style="font-size:1rem; font-weight:700; color:var(--text-muted); opacity:0.6; font-family:var(--font-head);">BAJAJ</span>
+        <span
+          style="font-size:1rem; font-weight:700; color:var(--text-muted); opacity:0.6; font-family:var(--font-head);">OLA</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ HOW IT WORKS ═══ -->
+  <section class="section" id="how-it-works">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Process</span>
+        <h2 class="section-title">Rent in <span>3 Simple Steps</span></h2>
+        <p class="section-subtitle">From browsing to riding in under 5 minutes. No paperwork hassle, no hidden charges.
+        </p>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card glass-card fade-up">
+          <div class="step-number">01</div>
+          <div class="step-icon">🔍</div>
+          <h4>Choose Your Ride</h4>
+          <p>Browse our fleet of 100+ bikes and scooters. Filter by city, type, price, and availability to find your
+            perfect match.</p>
+        </div>
+        <div class="step-card glass-card fade-up">
+          <div class="step-number">02</div>
+          <div class="step-icon">📅</div>
+          <h4>Book Instantly</h4>
+          <p>Select your pickup date, time, and duration. Fill in your details and choose your preferred payment method.
+          </p>
+        </div>
+        <div class="step-card glass-card fade-up">
+          <div class="step-number">03</div>
+          <div class="step-icon">🏍️</div>
+          <h4>Ride & Enjoy</h4>
+          <p>Pick up your vehicle or get it delivered to your doorstep. Ride freely with full insurance coverage
+            included.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ VEHICLE GALLERY / SHOWCASE ═══ -->
+  <section class="section"
+    style="background: linear-gradient(180deg, transparent, rgba(255,107,53,0.04), transparent);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Our Fleet</span>
+        <h2 class="section-title">Vehicle <span>Showcase</span></h2>
+        <p class="section-subtitle">Explore our premium collection of bikes and scooters, maintained to the highest
+          standards.</p>
+      </div>
+
+      <!-- Category Tabs -->
+      <div style="display:flex; justify-content:center; gap:12px; margin-bottom:40px; flex-wrap:wrap;">
+        <button class="showcase-tab active" data-show="all" onclick="filterShowcase(this,'all')">🚗 All
+          Vehicles</button>
+        <button class="showcase-tab" data-show="scooter" onclick="filterShowcase(this,'scooter')">🛵 Scooters</button>
+        <button class="showcase-tab" data-show="bike" onclick="filterShowcase(this,'bike')">🏍️ Bikes</button>
+        <button class="showcase-tab" data-show="electric" onclick="filterShowcase(this,'electric')">⚡ Electric</button>
+      </div>
+
+      <div class="vehicles-grid" id="showcase-grid">
+        <!-- Scooter Cards -->
+        <div class="vehicle-card glass-card fade-up" data-category="scooter">
+          <div class="vehicle-card-img">
+            <img src="assets/images/activa.png" alt="Honda Activa 6G" />
+            <span class="vehicle-card-badge badge badge-success">Available</span>
+            <span class="vehicle-card-type">🛵 Scooter</span>
+          </div>
+          <div class="vehicle-card-body">
+            <div class="vehicle-card-header">
+              <span class="vehicle-card-name">Honda Activa 6G</span>
+              <div class="vehicle-card-price"><span class="amount">₹40</span><span class="per">/hour</span></div>
+            </div>
+            <div class="vehicle-card-rating">
+              <span class="stars">★★★★★</span><span>4.7 (312 reviews)</span>
+            </div>
+            <div class="vehicle-specs">
+              <div class="spec-item"><span class="spec-icon">⛽</span>Petrol</div>
+              <div class="spec-item"><span class="spec-icon">💨</span>60 kmpl</div>
+              <div class="spec-item"><span class="spec-icon">🔧</span>109cc</div>
+            </div>
+            <a href="vehicle-detail.html?id=1" class="btn btn-primary" style="width:100%;justify-content:center;">Book
+              Now →</a>
+          </div>
+        </div>
+
+        <div class="vehicle-card glass-card fade-up" data-category="scooter">
+          <div class="vehicle-card-img">
+            <img src="assets/images/jupiter.png" alt="TVS Jupiter Classic" />
+            <span class="vehicle-card-badge badge badge-success">Available</span>
+            <span class="vehicle-card-type">🛵 Scooter</span>
+          </div>
+          <div class="vehicle-card-body">
+            <div class="vehicle-card-header">
+              <span class="vehicle-card-name">TVS Jupiter Classic</span>
+              <div class="vehicle-card-price"><span class="amount">₹35</span><span class="per">/hour</span></div>
+            </div>
+            <div class="vehicle-card-rating">
+              <span class="stars">★★★★½</span><span>4.5 (198 reviews)</span>
+            </div>
+            <div class="vehicle-specs">
+              <div class="spec-item"><span class="spec-icon">⛽</span>Petrol</div>
+              <div class="spec-item"><span class="spec-icon">💨</span>62 kmpl</div>
+              <div class="spec-item"><span class="spec-icon">🔧</span>110cc</div>
+            </div>
+            <a href="vehicle-detail.html?id=2" class="btn btn-primary" style="width:100%;justify-content:center;">Book
+              Now →</a>
+          </div>
+        </div>
+
+        <div class="vehicle-card glass-card fade-up" data-category="electric scooter">
+          <div class="vehicle-card-img">
+            <img src="assets/images/ola.png" alt="Ola S1 Pro" />
+            <span class="vehicle-card-badge badge badge-primary">⚡ Electric</span>
+            <span class="vehicle-card-type">🛵 Scooter</span>
+          </div>
+          <div class="vehicle-card-body">
+            <div class="vehicle-card-header">
+              <span class="vehicle-card-name">Ola S1 Pro</span>
+              <div class="vehicle-card-price"><span class="amount">₹55</span><span class="per">/hour</span></div>
+            </div>
+            <div class="vehicle-card-rating">
+              <span class="stars">★★★★☆</span><span>4.3 (145 reviews)</span>
+            </div>
+            <div class="vehicle-specs">
+              <div class="spec-item"><span class="spec-icon">⚡</span>Electric</div>
+              <div class="spec-item"><span class="spec-icon">🔋</span>181 km</div>
+              <div class="spec-item"><span class="spec-icon">📱</span>Connected</div>
+            </div>
+            <a href="vehicle-detail.html?id=3" class="btn btn-primary" style="width:100%;justify-content:center;">Book
+              Now →</a>
+          </div>
+        </div>
+
+        <div class="vehicle-card glass-card fade-up" data-category="bike">
+          <div class="vehicle-card-img">
+            <img src="assets/images/royal_enfield.png" alt="Royal Enfield Classic 350" />
+            <span class="vehicle-card-badge badge badge-success">Available</span>
+            <span class="vehicle-card-type">🏍️ Bike</span>
+          </div>
+          <div class="vehicle-card-body">
+            <div class="vehicle-card-header">
+              <span class="vehicle-card-name">Royal Enfield Classic 350</span>
+              <div class="vehicle-card-price"><span class="amount">₹85</span><span class="per">/hour</span></div>
+            </div>
+            <div class="vehicle-card-rating">
+              <span class="stars">★★★★★</span><span>4.9 (512 reviews)</span>
+            </div>
+            <div class="vehicle-specs">
+              <div class="spec-item"><span class="spec-icon">⛽</span>Petrol</div>
+              <div class="spec-item"><span class="spec-icon">💨</span>35 kmpl</div>
+              <div class="spec-item"><span class="spec-icon">🔧</span>349cc</div>
+            </div>
+            <a href="vehicle-detail.html?id=7" class="btn btn-primary" style="width:100%;justify-content:center;">Book
+              Now →</a>
+          </div>
+        </div>
+
+        <div class="vehicle-card glass-card fade-up" data-category="bike">
+          <div class="vehicle-card-img">
+            <img src="assets/images/ktm.png" alt="KTM Duke 200" />
+            <span class="vehicle-card-badge badge badge-success">Available</span>
+            <span class="vehicle-card-type">🏍️ Bike</span>
+          </div>
+          <div class="vehicle-card-body">
+            <div class="vehicle-card-header">
+              <span class="vehicle-card-name">KTM Duke 200</span>
+              <div class="vehicle-card-price"><span class="amount">₹80</span><span class="per">/hour</span></div>
+            </div>
+            <div class="vehicle-card-rating">
+              <span class="stars">★★★★★</span><span>4.7 (278 reviews)</span>
+            </div>
+            <div class="vehicle-specs">
+              <div class="spec-item"><span class="spec-icon">⛽</span>Petrol</div>
+              <div class="spec-item"><span class="spec-icon">💨</span>32 kmpl</div>
+              <div class="spec-item"><span class="spec-icon">🔧</span>200cc</div>
+            </div>
+            <a href="vehicle-detail.html?id=8" class="btn btn-primary" style="width:100%;justify-content:center;">Book
+              Now →</a>
+          </div>
+        </div>
+
+        <div class="vehicle-card glass-card fade-up" data-category="bike">
+          <div class="vehicle-card-img">
+            <img src="assets/images/royal_enfield.png" alt="RE Himalayan" />
+            <span class="vehicle-card-badge badge badge-warning">🔥 Popular</span>
+            <span class="vehicle-card-type">🏍️ Bike</span>
+          </div>
+          <div class="vehicle-card-body">
+            <div class="vehicle-card-header">
+              <span class="vehicle-card-name">RE Himalayan</span>
+              <div class="vehicle-card-price"><span class="amount">₹100</span><span class="per">/hour</span></div>
+            </div>
+            <div class="vehicle-card-rating">
+              <span class="stars">★★★★★</span><span>4.8 (189 reviews)</span>
+            </div>
+            <div class="vehicle-specs">
+              <div class="spec-item"><span class="spec-icon">⛽</span>Petrol</div>
+              <div class="spec-item"><span class="spec-icon">💨</span>30 kmpl</div>
+              <div class="spec-item"><span class="spec-icon">🔧</span>411cc</div>
+            </div>
+            <a href="vehicle-detail.html?id=12" class="btn btn-primary" style="width:100%;justify-content:center;">Book
+              Now →</a>
+          </div>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:48px;">
+        <a href="vehicles.html" class="btn btn-outline btn-lg">View All 12+ Vehicles →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ STATS ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="stats-section">
+        <div class="stats-grid">
+          <div class="stat-item fade-up">
+            <div class="stat-value" id="stat-vehicles">500+</div>
+            <div class="stat-label">🏍️ Vehicles in Fleet</div>
+          </div>
+          <div class="stat-item fade-up">
+            <div class="stat-value" id="stat-cities">12+</div>
+            <div class="stat-label">🏙️ Cities Covered</div>
+          </div>
+          <div class="stat-item fade-up">
+            <div class="stat-value" id="stat-riders">50K+</div>
+            <div class="stat-label">😊 Happy Riders</div>
+          </div>
+          <div class="stat-item fade-up">
+            <div class="stat-value" id="stat-rating">4.8★</div>
+            <div class="stat-label">⭐ Average Rating</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ RECENTLY RENTED ═══ -->
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Live Activity</span>
+        <h2 class="section-title">Recently <span>Rented</span></h2>
+        <p class="section-subtitle">See what others are riding right now in your city.</p>
+      </div>
+      <div class="rented-grid"
+        style="display:grid; grid-template-columns:repeat(auto-fit, minmax(280px, 1fr)); gap:24px;">
+
+        <!-- Rented Item 1 -->
+        <div class="rented-card glass-card fade-up"
+          style="position:relative; overflow:hidden; padding:0; border-radius:var(--radius-lg);">
+          <img src="assets/images/activa.png" alt="Rented Scooter"
+            style="width:100%; height:200px; object-fit:contain; background:#eaeaea;" />
+          <div
+            style="position:absolute; top:12px; right:12px; background:rgba(0,0,0,0.7); color:#fff; padding:4px 12px; border-radius:20px; font-size:0.8rem; font-weight:bold; backdrop-filter:blur(4px);">
+            🔴 Just Rented
+          </div>
+          <div style="padding:20px;">
+            <h4 style="margin-bottom:8px;">Honda Activa 6G</h4>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;">Rented by <strong>Rahul
+                K.</strong> in Haldwani</p>
+            <div style="font-size:0.8rem; color:var(--primary); font-weight:600;">🕒 5 mins ago</div>
+          </div>
+        </div>
+
+        <!-- Rented Item 2 -->
+        <div class="rented-card glass-card fade-up"
+          style="position:relative; overflow:hidden; padding:0; border-radius:var(--radius-lg);">
+          <img src="assets/images/ola.png" alt="Rented Electric Scooter"
+            style="width:100%; height:200px; object-fit:contain; background:#eaeaea;" />
+          <div
+            style="position:absolute; top:12px; right:12px; background:rgba(0,0,0,0.7); color:#fff; padding:4px 12px; border-radius:20px; font-size:0.8rem; font-weight:bold; backdrop-filter:blur(4px);">
+            🔴 Just Rented
+          </div>
+          <div style="padding:20px;">
+            <h4 style="margin-bottom:8px;">Ola S1 Pro</h4>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;">Rented by <strong>Priya
+                S.</strong> in Nainital</p>
+            <div style="font-size:0.8rem; color:var(--primary); font-weight:600;">🕒 12 mins ago</div>
+          </div>
+        </div>
+
+        <!-- Rented Item 3 -->
+        <div class="rented-card glass-card fade-up"
+          style="position:relative; overflow:hidden; padding:0; border-radius:var(--radius-lg);">
+          <img src="assets/images/jupiter.png" alt="Rented Scooter"
+            style="width:100%; height:200px; object-fit:contain; background:#eaeaea;" />
+          <div
+            style="position:absolute; top:12px; right:12px; background:rgba(0,0,0,0.7); color:#fff; padding:4px 12px; border-radius:20px; font-size:0.8rem; font-weight:bold; backdrop-filter:blur(4px);">
+            🔴 Just Rented
+          </div>
+          <div style="padding:20px;">
+            <h4 style="margin-bottom:8px;">TVS Jupiter Classic</h4>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;">Rented by <strong>Amit V.</strong>
+              in Bhimtal</p>
+            <div style="font-size:0.8rem; color:var(--primary); font-weight:600;">🕒 25 mins ago</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ TESTIMONIALS ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Reviews</span>
+        <h2 class="section-title">What Riders <span>Say</span></h2>
+        <p class="section-subtitle">Thousands of happy customers trust RideEasy for their everyday and adventure rides.
+        </p>
+      </div>
+      <div class="testimonials-track">
+        <div class="testimonial-card glass-card fade-up">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">Booked a Royal Enfield for a weekend trip to Manali. The process was seamless and
+            the bike was in perfect condition. RideEasy is now my go-to for all rentals!</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">GT</div>
+            <div>
+              <div class="author-name">Gaurv Thapa</div>
+              <div class="author-city">📍 Naukuchiyatal </div>
+            </div>
+            <div class="stars" style="margin-left:auto;">★★★★★</div>
+          </div>
+        </div>
+        <div class="testimonial-card glass-card fade-up">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">The Ola S1 Pro was a joy to ride around Bangalore! Zero emissions, super quiet,
+            and the app integration is fantastic. Great value for money!</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">PS</div>
+            <div>
+              <div class="author-name">Anubhav Joshi</div>
+              <div class="author-city">📍 Bhowali</div>
+            </div>
+            <div class="stars" style="margin-left:auto;">★★★★★</div>
+          </div>
+        </div>
+        <div class="testimonial-card glass-card fade-up">
+          <div class="testimonial-quote">"</div>
+          <p class="testimonial-text">As a college student, the Honda Activa on hourly rental is a lifesaver for my
+            commute. Affordable, clean vehicles and superb customer support!</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">RK</div>
+            <div>
+              <div class="author-name">Rajat Kumar</div>
+              <div class="author-city">📍 Haldwani</div>
+            </div>
+            <div class="stars" style="margin-left:auto;">★★★★☆</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ CTA SECTION ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="cta-section fade-up">
+        <div>
+          <span class="section-label">Start Riding Today</span>
+          <h2 class="section-title">Your Adventure <span>Awaits</span></h2>
+          <p style="color:var(--text-muted); margin-bottom:12px;">Join 50,000+ riders across India who choose RideEasy
+            for their daily commute and weekend getaways.</p>
+          <div class="cta-features">
+            <div class="cta-feature"><span class="cta-feature-icon">✅</span> No hidden charges or security deposits
+            </div>
+            <div class="cta-feature"><span class="cta-feature-icon">✅</span> Full insurance coverage on every ride</div>
+            <div class="cta-feature"><span class="cta-feature-icon">✅</span> 24/7 roadside assistance support</div>
+            <div class="cta-feature"><span class="cta-feature-icon">✅</span> Doorstep delivery available</div>
+          </div>
+          <div style="margin-top:32px; display:flex; gap:16px; flex-wrap:wrap;">
+            <a href="vehicles.html" class="btn btn-primary btn-lg">Browse All Vehicles</a>
+            <a href="contact.html" class="btn btn-outline btn-lg">Contact Support</a>
+          </div>
+        </div>
+        <div class="cta-visual">
+          <div class="app-card"><span class="app-icon">🏍️</span>
+            <div>
+              <div style="font-weight:700; margin-bottom:2px;">100+ Vehicles</div>
+              <div style="font-size:0.82rem; color:var(--text-muted);">Updated in real-time</div>
+            </div>
+          </div>
+          <div class="app-card"><span class="app-icon">📍</span>
+            <div>
+              <div style="font-weight:700; margin-bottom:2px;">12 Cities</div>
+              <div style="font-size:0.82rem; color:var(--text-muted);">Expanding soon</div>
+            </div>
+          </div>
+          <div class="app-card"><span class="app-icon">⚡</span>
+            <div>
+              <div style="font-weight:700; margin-bottom:2px;">Instant Booking</div>
+              <div style="font-size:0.82rem; color:var(--text-muted);">Confirmed in seconds</div>
+            </div>
+          </div>
+          <div class="app-card"><span class="app-icon">🛡️</span>
+            <div>
+              <div style="font-weight:700; margin-bottom:2px;">Full Insurance</div>
+              <div style="font-size:0.82rem; color:var(--text-muted);">Every ride covered</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <div class="logo-icon">🛵</div>Ride<span>Easy</span>
+          </a>
+          <p>India's most trusted bike and scooter rental platform. Ride freely, explore boldly.</p>
+          <div class="social-links">
+            <a href="#" class="social-link" title="Instagram">📸</a>
+            <a href="#" class="social-link" title="Twitter">🐦</a>
+            <a href="#" class="social-link" title="Facebook">👍</a>
+            <a href="#" class="social-link" title="YouTube">▶️</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">🏠 Home</a></li>
+            <li><a href="vehicles.html">🏍️ Browse Vehicles</a></li>
+            <li><a href="about.html">ℹ️ About Us</a></li>
+            <li><a href="contact.html">📞 <Contact-9997136314></Contact-9997136314></a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Vehicle Types</h4>
+          <ul>
+            <li><a href="vehicles.html">🛵 Scooters</a></li>
+            <li><a href="vehicles.html">🏍️ Bikes</a></li>
+            <li><a href="vehicles.html">⚡ Electric</a></li>
+            <li><a href="vehicles.html">🏔️ Adventure</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">❓ FAQ</a></li>
+            <li><a href="contact.html">📧 Email Us</a></li>
+            <li><a href="#">📜 Terms of Service</a></li>
+            <li><a href="#">🔒 Privacy Policy</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 RideEasy. All rights reserved.</span>
+        <span>Made with ❤️ in Uttarakhand</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    // Hero date defaults
+    const today = new Date().toISOString().split('T')[0];
+    const tomorrow = new Date(Date.now() + 86400000).toISOString().split('T')[0];
+    document.getElementById('hero-pickup').min = today;
+    document.getElementById('hero-pickup').value = today;
+    document.getElementById('hero-return').min = today;
+    document.getElementById('hero-return').value = tomorrow;
+
+    // Showcase filter
+    function filterShowcase(btn, category) {
+      document.querySelectorAll('.showcase-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      document.querySelectorAll('#showcase-grid .vehicle-card').forEach(card => {
+        const cat = card.dataset.category || '';
+        card.style.display = (category === 'all' || cat.includes(category)) ? '' : 'none';
+      });
+    }
+
+    function searchVehicles() {
+      const city = document.getElementById('hero-city').value;
+      window.location.href = `vehicles.html?city=${encodeURIComponent(city)}`;
+    }
+
+    // Vehicle tabs
+    document.querySelectorAll('.vehicle-tab').forEach(tab => {
+      tab.addEventListener('click', () => {
+        document.querySelectorAll('.vehicle-tab').forEach(t => t.classList.remove('active'));
+        tab.classList.add('active');
+      });
+    });
+
+    // Particles
+    const container = document.getElementById('particles');
+    if (container) {
+      for (let i = 0; i < 18; i++) {
+        const p = document.createElement('div');
+        p.className = 'particle';
+        const size = Math.random() * 8 + 3;
+        p.style.cssText = `width:${size}px;height:${size}px;left:${Math.random() * 100}%;animation-duration:${Math.random() * 8 + 6}s;animation-delay:${Math.random() * 6}s;opacity:${Math.random() * 0.4 + 0.1}`;
+        container.appendChild(p);
+      }
+    }
+  </script>
+  <style>
+    .showcase-tab {
+      padding: 10px 22px;
+      border-radius: var(--radius-full);
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text-muted);
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition-fast);
+    }
+
+    .showcase-tab.active,
+    .showcase-tab:hover {
+      background: var(--primary);
+      color: #fff;
+      border-color: var(--primary);
+    }
+  </style>
+</body>
+
+</html>

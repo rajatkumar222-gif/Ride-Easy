@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Browse Vehicles – RideEasy</title>
+  <meta name="description" content="Browse 100+ bikes and scooters available for rent. Filter by type, city, price and availability. Instant booking." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/vehicles.css" />
+</head>
+<body>
+
+<!-- ═══ NAVBAR ═══ -->
+<nav id="navbar">
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo"><div class="logo-icon">🛵</div>Ride<span>Easy</span></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="vehicles.html" class="active">Vehicles</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <div class="nav-cta"><a href="vehicles.html" class="btn btn-primary btn-sm">🏍️ Rent Now</a></div>
+    <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+  </div>
+</nav>
+<nav class="mobile-nav" id="mobile-nav">
+  <a href="index.html">🏠 Home</a>
+  <a href="vehicles.html">🏍️ Vehicles</a>
+  <a href="about.html">ℹ️ About</a>
+  <a href="contact.html">📞 Contact</a>
+  <a href="vehicles.html" class="btn btn-primary" style="text-align:center;margin-top:8px;">Rent Now</a>
+</nav>
+
+<!-- ═══ PAGE HERO ═══ -->
+<div class="page-hero">
+  <div class="container">
+    <span class="section-label">Our Fleet</span>
+    <h1>Find Your <span style="color:var(--primary);">Perfect Ride</span></h1>
+    <p style="color:var(--text-muted); margin-top:12px; font-size:1.05rem;">Browse 12+ bikes and scooters across 4 cities. Filter, search, and book instantly.</p>
+    <!-- Mobile filter toggle -->
+    <button class="btn btn-ghost btn-sm" id="mobile-filter-toggle" style="margin-top:20px;display:none;" onclick="document.getElementById('filter-sidebar').classList.toggle('mobile-open')">
+      ⚙️ Show Filters
+    </button>
+  </div>
+</div>
+
+<!-- ═══ MAIN CONTENT ═══ -->
+<section class="section-sm">
+  <div class="container">
+    <div class="vehicles-page-layout">
+
+      <!-- ── FILTER SIDEBAR ── -->
+      <aside class="filter-sidebar" id="filter-sidebar">
+        <div class="filter-header">
+          <h3>⚙️ Filters</h3>
+          <button class="filter-reset" id="filter-reset">Reset All</button>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-section-title">Vehicle Type</div>
+          <div class="filter-types">
+            <button class="filter-type-btn active" data-type="all">🚗 All Vehicles</button>
+            <button class="filter-type-btn" data-type="scooter">🛵 Scooters Only</button>
+            <button class="filter-type-btn" data-type="bike">🏍️ Bikes Only</button>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-section-title">Max Price / Hour</div>
+          <div class="price-range-display">
+            <span>₹20</span>
+            <span class="price-val" id="price-val">₹120/hr</span>
+          </div>
+          <input type="range" id="price-slider" min="20" max="120" value="120" step="5" />
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-section-title">Fuel Type</div>
+          <div class="filter-checkboxes">
+            <label class="filter-checkbox"><input type="checkbox" value="Petrol" onchange="applyFuelFilter()" checked /> Petrol</label>
+            <label class="filter-checkbox"><input type="checkbox" value="Electric" onchange="applyFuelFilter()" checked /> ⚡ Electric</label>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-section-title">City</div>
+          <div class="filter-cities">
+            <button class="filter-city-chip active" data-city="all">📍 All Cities</button>
+            <button class="filter-city-chip" data-city="Haldwani">🏙️ Haldwani</button>
+            <button class="filter-city-chip" data-city="Bhimtal">🌆 Bhimtal</button>
+            <button class="filter-city-chip" data-city="Nainital">🌃 Bhowali</button>
+            <button class="filter-city-chip" data-city="Bhowali">🏛️ Nainital</button>
+          </div>
+        </div>
+
+        <div class="filter-section">
+          <div class="filter-section-title">Availability</div>
+          <div class="filter-checkboxes">
+            <label class="filter-checkbox"><input type="checkbox" id="avail-filter" onchange="applyFuelFilter()" /> Available Only</label>
+          </div>
+        </div>
+      </aside>
+
+      <!-- ── VEHICLES LISTING ── -->
+      <div>
+        <div class="vehicles-top-bar">
+          <div class="search-wrapper">
+            <span class="search-icon">🔍</span>
+            <input type="text" class="search-input" id="search-input" placeholder="Search by name or brand..." />
+          </div>
+          <select class="sort-select" id="sort-select">
+            <option value="popular">Most Popular</option>
+            <option value="price-asc">Price: Low to High</option>
+            <option value="price-desc">Price: High to Low</option>
+            <option value="rating">Top Rated</option>
+          </select>
+          <span class="results-count" id="results-count">Showing <span>12</span> vehicles</span>
+        </div>
+
+        <div class="vehicles-main-grid" id="vehicles-grid">
+          <!-- Populated by vehicles.js -->
+          <div style="grid-column:1/-1; text-align:center; padding:60px; color:var(--text-muted);">
+            <div class="spinner"></div>
+            <p style="margin-top:16px;">Loading vehicles...</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer id="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a href="index.html" class="nav-logo"><div class="logo-icon">🛵</div>Ride<span>Easy</span></a>
+        <p>India's most trusted bike and scooter rental platform.</p>
+        <div class="social-links">
+          <a href="#" class="social-link">📸</a><a href="#" class="social-link">🐦</a>
+          <a href="#" class="social-link">👍</a><a href="#" class="social-link">▶️</a>
+        </div>
+      </div>
+      <div class="footer-col"><h4>Quick Links</h4><ul>
+        <li><a href="index.html">Home</a></li><li><a href="vehicles.html">Vehicles</a></li>
+        <li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Vehicle Types</h4><ul>
+        <li><a href="vehicles.html">🛵 Scooters</a></li><li><a href="vehicles.html">🏍️ Bikes</a></li>
+        <li><a href="vehicles.html">⚡ Electric</a></li><li><a href="vehicles.html">🏔️ Adventure</a></li>
+      </ul></div>
+      <div class="footer-col"><h4>Support</h4><ul>
+        <li><a href="contact.html">FAQ</a></li><li><a href="contact.html">Contact</a></li>
+        <li><a href="#">Terms</a></li><li><a href="#">Privacy</a></li>
+      </ul></div>
+    </div>
+  </div>
+  <div class="divider"></div>
+  <div class="container"><div class="footer-bottom">
+    <span>© 2026 RideEasy. All rights reserved.</span>
+    <span>Made with ❤️ in Uttarakhand</span>
+  </div></div>
+</footer>
+
+<script src="js/main.js"></script>
+<script src="js/vehicles.js"></script>
+<script>
+  // Mobile filter toggle visibility
+  if (window.innerWidth < 900) {
+    document.getElementById('mobile-filter-toggle').style.display = 'inline-flex';
+  }
+  // Check URL params for city pre-filter
+  const params = new URLSearchParams(window.location.search);
+  const cityParam = params.get('city');
+  if (cityParam) {
+    const cityBtn = document.querySelector(`[data-city="${cityParam}"]`);
+    if (cityBtn) setTimeout(() => cityBtn.click(), 100);
+  }
+  // Fuel / Avail filter (handled in vehicles.js applyFilters, this exposes the hook)
+  function applyFuelFilter() { /* triggers re-render via vehicles.js */ }
+</script>
+</body>
+</html>

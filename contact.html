@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Contact Us – RideEasy</title>
+  <meta name="description"
+    content="Get in touch with RideEasy. We're available 24/7 to help with your bike and scooter rental queries." />
+  <link rel="stylesheet" href="css/style.css" />
+  <link rel="stylesheet" href="css/booking.css" />
+</head>
+
+<body>
+
+  <!-- ═══ NAVBAR ═══ -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <a href="index.html" class="nav-logo">
+        <div class="logo-icon">🛵</div>Ride<span>Easy</span>
+      </a>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="vehicles.html">Vehicles</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+      <div class="nav-cta"><a href="vehicles.html" class="btn btn-primary btn-sm">🏍️ Rent Now</a></div>
+      <div class="hamburger" id="hamburger"><span></span><span></span><span></span></div>
+    </div>
+  </nav>
+  <nav class="mobile-nav" id="mobile-nav">
+    <a href="index.html">🏠 Home</a>
+    <a href="vehicles.html">🏍️ Vehicles</a>
+    <a href="about.html">ℹ️ About</a>
+    <a href="contact.html">📞 Contact</a>
+    <a href="vehicles.html" class="btn btn-primary" style="text-align:center;margin-top:8px;">Rent Now</a>
+  </nav>
+
+  <!-- ═══ PAGE HERO ═══ -->
+  <div class="page-hero">
+    <div class="container">
+      <span class="section-label">Get In Touch</span>
+      <h1>We're Here to <span style="color:var(--primary);">Help You Ride</span></h1>
+      <p style="color:var(--text-muted); margin-top:12px; max-width:520px; margin-left:auto; margin-right:auto;">
+        Questions, issues, or just want to say hi? Our support team is available 24/7 to help you with anything.</p>
+    </div>
+  </div>
+
+  <!-- ═══ CONTACT SECTION ═══ -->
+  <section class="section">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- Left: Info Cards -->
+        <div>
+          <span class="section-label">Contact Info</span>
+          <h2 class="section-title" style="margin-bottom:28px;">Reach <span>Us Anytime</span></h2>
+
+          <div class="contact-info">
+            <div class="contact-info-card">
+              <div class="contact-info-icon">📞</div>
+              <div>
+                <div class="contact-info-title">Phone Support</div>
+                <div class="contact-info-detail">1800-RIDEEASY (Toll Free)<br>Available 24/7</div>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="contact-info-icon">📧</div>
+              <div>
+                <div class="contact-info-title">Email Us</div>
+                <div class="contact-info-detail">bcacoder222@gmail.com<br>Response within 2 hours</div>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="contact-info-icon">💬</div>
+              <div>
+                <div class="contact-info-title">WhatsApp Support</div>
+                <div class="contact-info-detail">+91 9997136314<br>Chat with us instantly</div>
+              </div>
+            </div>
+            <div class="contact-info-card">
+              <div class="contact-info-icon">📍</div>
+              <div>
+                <div class="contact-info-title">Head Office</div>
+                <div class="contact-info-detail">Bhimtal Sattal Near Graphic Era University<br>Sattal, Bhimtal – 263132
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Cities -->
+          <div style="margin-top:40px;">
+            <h4 style="margin-bottom:16px;">🏙️ Our Locations</h4>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;">
+              <div
+                style="padding:14px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); font-size:0.88rem;">
+                <div style="font-weight:600; margin-bottom:2px;">Sattal Bhimtal</div>
+                <div style="color:var(--text-muted);">Haldwani Near Graphic Era</div>
+              </div>
+              <div
+                style="padding:14px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); font-size:0.88rem;">
+                <div style="font-weight:600; margin-bottom:2px;">Bhowali</div>
+                <div style="color:var(--text-muted);">Near State Bank of India</div>
+              </div>
+              <div
+                style="padding:14px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); font-size:0.88rem;">
+                <div style="font-weight:600; margin-bottom:2px;">Nainital</div>
+                <div style="color:var(--text-muted);">Near Mannu Maharani Hotel</div>
+              </div>
+              <div
+                style="padding:14px; background:var(--surface); border:1px solid var(--border); border-radius:var(--radius-md); font-size:0.88rem;">
+                <div style="font-weight:600; margin-bottom:2px;">Rudarpu</div>
+                <div style="color:var(--text-muted);">Near Convernt School</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Contact Form -->
+        <div class="contact-form-card glass-card fade-up">
+          <h3 style="margin-bottom:8px;">✉️ Send Us a Message</h3>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:28px;">Fill out the form and we'll get
+            back to you within 2 hours.</p>
+          <form class="contact-form" id="contact-form" onsubmit="submitContactForm(event)">
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px;">
+              <div class="form-group">
+                <label class="form-label">Your Name *</label>
+                <input type="text" class="form-control" id="contact-name" placeholder="Rajat Kumar" required />
+              </div>
+              <div class="form-group">
+                <label class="form-label">Phone Number</label>
+                <input type="tel" class="form-control" id="contact-phone" placeholder="999XXXXXXX" maxlength="10" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Email Address *</label>
+              <input type="email" class="form-control" id="contact-email" placeholder="you@example.com" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Subject *</label>
+              <select class="form-control" id="contact-subject" required>
+                <option value="">Select a topic</option>
+                <option>New Booking Query</option>
+                <option>Existing Booking Issue</option>
+                <option>Vehicle Complaint</option>
+                <option>Payment Issue</option>
+                <option>Partnership / Fleet Owner</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Message *</label>
+              <textarea class="form-control" id="contact-message" rows="5" placeholder="Tell us how we can help..."
+                style="resize:vertical;" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center; padding:14px;"
+              id="contact-submit-btn">
+              📩 Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FAQ ═══ -->
+  <section class="section" style="background:var(--bg-2);">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">FAQ</span>
+        <h2 class="section-title">Common <span>Questions</span></h2>
+        <p class="section-subtitle">Can't find your answer? Reach out to us directly.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            How do I track my booking? <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>After booking, you'll receive an SMS and email with your booking ID. You can use this ID to track your
+              booking status by contacting our support team at 1800-RIDEEASY.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            What if the vehicle breaks down? <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>We provide 24/7 roadside assistance. In case of a breakdown, call our helpline and our team will reach
+              you within 30-60 minutes. If the vehicle can't be fixed on-site, we'll arrange a replacement.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Can I rent vehicles for multiple days? <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Absolutely! You can rent for as little as 1 hour or as long as 30 days. Multi-day rentals (3+ days)
+              receive a 15% discount on the base price automatically.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            Is there an age requirement? <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>Yes. You must be at least 18 years old and hold a valid two-wheeler driving license. For bikes above
+              350cc, you must be 21+ years and have held your license for at least 1 year.</p>
+          </div>
+        </div>
+        <div class="faq-item">
+          <div class="faq-question" onclick="toggleFaq(this)">
+            What payment methods are accepted? <span class="faq-icon">+</span>
+          </div>
+          <div class="faq-answer">
+            <p>We accept cash at pickup, UPI (Google Pay, PhonePe, Paytm), Credit/Debit cards (Visa, Mastercard, RuPay),
+              and Net Banking from all major Indian banks.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer id="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="nav-logo">
+            <div class="logo-icon">🛵</div>Ride<span>Easy</span>
+          </a>
+          <p>India's most trusted bike and scooter rental platform.</p>
+          <div class="social-links">
+            <a href="#" class="social-link">📸</a><a href="#" class="social-link">🐦</a>
+            <a href="#" class="social-link">👍</a><a href="#" class="social-link">▶️</a>
+          </div>
+        </div>
+        <div class="footer-col">
+          <h4>Quick Links</h4>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="vehicles.html">Vehicles</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <ul>
+            <li><a href="contact.html">FAQ</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="#">Terms</a></li>
+            <li><a href="#">Privacy</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Contact</h4>
+          <ul>
+            <li><a href="tel:18001234567">📞 1800-RIDEEASY</a></li>
+            <li><a href="mailto:support@rideeasy.in">📧 support@rideeasy.in</a></li>
+            <li><a href="#">💬 WhatsApp</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="container">
+      <div class="footer-bottom">
+        <span>© 2026 RideEasy. All rights reserved.</span>
+        <span>Made with ❤️ in Uttarakhand</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+  <script>
+    function toggleFaq(el) {
+      const item = el.closest('.faq-item');
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    }
+
+    function submitContactForm(e) {
+      e.preventDefault();
+      const btn = document.getElementById('contact-submit-btn');
+      btn.disabled = true;
+      btn.innerHTML = '<span class="spinner"></span> Sending...';
+
+      setTimeout(() => {
+        btn.innerHTML = '✅ Message Sent!';
+        btn.style.background = 'var(--success)';
+        showToast('Message sent successfully! We\'ll reply within 2 hours. 🎉', 'success');
+        document.getElementById('contact-form').reset();
+        setTimeout(() => {
+          btn.disabled = false;
+          btn.innerHTML = '📩 Send Message';
+          btn.style.background = '';
+        }, 4000);
+      }, 1500);
+    }
+  </script>
+</body>
+
+</html>
